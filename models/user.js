@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema(
  email: { type: String, required: true },     // Admin email
  password: { type: String, required: true },  // Admin password (hashed later)
  created: { type: Date, required: true},
- updated: { type: Date, default: Date.now },
+ updated: { type: Date, requires: true },
   },
   { timestamps: true }
 );

@@ -5,7 +5,9 @@ import morgan from "morgan";
 import cors from "cors";
 import connectDB from "./config/database.js";
 import contactRoutes from "./routes/contactRoutes.js";
-
+import projectRoutes from "./routes/projectRoutes.js";
+import serviceRoutes from "./routes/serviceRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 dotenv.config();
 const app = express();
 
@@ -20,6 +22,9 @@ app.use(express.json());
 
 //routes
 app.use("/api/contacts", contactRoutes);
+app.use("/api/projects", projectRoutes);
+app.use("/api/services", serviceRoutes);
+app.use("/api/users", userRoutes);
 
 // Root route
 app.get("/", (req, res) => {
