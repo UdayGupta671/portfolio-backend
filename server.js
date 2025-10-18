@@ -4,6 +4,7 @@ import createError from "http-errors";
 import morgan from "morgan";
 import cors from "cors";
 import connectDB from "./config/database.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -12,9 +13,13 @@ const app = express();
 connectDB();
 
 // Middlewares
+
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
+
+//routes
+app.use("/api/contacts", contactRoutes);
 
 // Root route
 app.get("/", (req, res) => {
